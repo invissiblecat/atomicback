@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "Box": 2
+  },
+  "models": {
+    "Box": {
+      "1": "{\"status\":\"both deployed\",\"sender\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"sendNetwork\":\"Avalanche\",\"recieveNetwork\":\"Ethereum\",\"sendToken\":\"0x08d275372da60Cfbcb6db7351EE3259c27cb718C\",\"recieveToken\":\"0xF8c662c828fFB20D64372557a7BFdA11D2449e65\",\"sendAmount\":\"1000000000000000000\",\"recieveAmount\":\"2000000000000000000\",\"createdAt\":1654977343566,\"updatedAt\":1654977343566,\"id\":\"1\",\"secret\":\"\",\"unlockTimestamp\":0,\"reciever\":\"\",\"sendBlockchainId\":1,\"recieveBlockchainId\":1}"
+    }
+  }
+}
