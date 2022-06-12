@@ -48,7 +48,6 @@ export class RegistryService {
   async listener(eventName: string, networkName: string, args: any) {
     const event = args[args.length - 1];
     const eventProperties = event.args;
-    console.log(eventProperties);
     const sender = eventProperties.sender;
     const offchainId = eventProperties.offchainBoxId;
 
