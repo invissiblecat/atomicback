@@ -32,6 +32,7 @@ export class RegistryService {
     );
 
     this.startListener('BoxCreated');
+    this.startListener('Claim');
   }
 
   async startListener(eventName: string): Promise<any> {
@@ -39,11 +40,9 @@ export class RegistryService {
     this.avalancheRegistry.on(eventName, async (...args: any) => {
       await this.listener(eventName, 'Avalanche', args);
     });
-    console.log('Avalanche');
     this.ethereumRegistry.on(eventName, async (...args: any) => {
       await this.listener(eventName, 'Ethereum', args);
     });
-    console.log('Ethereum');
   }
 
   async listener(eventName: string, networkName: string, args: any) {
@@ -52,31 +51,58 @@ export class RegistryService {
     console.log(eventProperties);
     const sender = eventProperties.sender;
     const offchainId = eventProperties.offchainBoxId;
-    console.log(offchainId);
-    if (eventName === 'BoxCreated') {
-      console.log({eventName, networkName});
-      const box = await this.boxRepository.findById(offchainId.toString());
-      let patch: Partial<Box> = {};
-      if (box.sendNetwork == networkName)
-        patch = {
-          sendBlockchainId: +eventProperties.boxId.toString(),
-        };
-      else
-        patch = {
-          recieveBlockchainId: +eventProperties.boxId.toString(),
-        };
-      if (box.status === 'not deployed')
-        patch = {
-          ...patch,
-          status: 'first deployed',
-        };
-      else if (box.status === 'first deployed')
-        patch = {...patch, status: 'both deployed'};
-      try {
-        await this.boxRepository.updateById(box?.id, patch);
-      } catch (error) {
-        console.log(error);
-      }
+
+    switch (eventName) {
+      case 'BoxCreated':
+        await this.boxCreated(
+          offchainId,
+          eventProperties.boxId.toString(),
+          networkName,
+        );
+        break;
+      case 'Claim':
+        await this.claim(offchainId);
+        break;
+    }
+  }
+
+  async boxCreated(offchainId: string, boxId: string, networkName: string) {
+    const box = await this.boxRepository.findById(offchainId.toString());
+    let patch: Partial<Box> = {};
+    if (box.sendNetwork == networkName)
+      patch = {
+        sendBlockchainId: +boxId,
+      };
+    else
+      patch = {
+        recieveBlockchainId: +boxId,
+      };
+    if (box.status === 'not deployed')
+      patch = {
+        ...patch,
+        status: 'first deployed',
+      };
+    else if (box.status === 'first deployed')
+      patch = {...patch, status: 'both deployed'};
+    try {
+      await this.boxRepository.updateById(box?.id, patch);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async claim(offchainId: string) {
+    const box = await this.boxRepository.findById(offchainId.toString());
+    let patch: Partial<Box> = {};
+    if (box.status === 'both deployed')
+      patch = {
+        status: 'first claimed',
+      };
+    else patch = {status: 'both claimed'};
+    try {
+      await this.boxRepository.updateById(box?.id, patch);
+    } catch (error) {
+      console.log(error);
     }
   }
 }
