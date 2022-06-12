@@ -77,6 +77,11 @@ export class Box extends Entity {
   secret?: string;
 
   @property({
+    type: 'string',
+  })
+  hashSecret?: string;
+
+  @property({
     type: 'number',
   })
   unlockTimestamp?: number;

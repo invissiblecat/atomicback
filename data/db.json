@@ -1,0 +1,11 @@
+{
+  "ids": {
+    "Box": 3
+  },
+  "models": {
+    "Box": {
+      "1": "{\"status\":\"both deployed\",\"sender\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"sendNetwork\":\"Avalanche\",\"recieveNetwork\":\"Ethereum\",\"sendToken\":\"0x08d275372da60Cfbcb6db7351EE3259c27cb718C\",\"recieveToken\":\"0xF8c662c828fFB20D64372557a7BFdA11D2449e65\",\"sendAmount\":\"100000000000000000\",\"recieveAmount\":\"10000000000000000\",\"createdAt\":1655046765143,\"updatedAt\":1655046765143,\"id\":\"1\",\"reciever\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"secret\":\"\",\"unlockTimestamp\":0,\"sendBlockchainId\":1,\"recieveBlockchainId\":1}",
+      "2": "{\"status\":\"first claimed\",\"sender\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"sendNetwork\":\"Avalanche\",\"recieveNetwork\":\"Ethereum\",\"sendToken\":\"0x08d275372da60Cfbcb6db7351EE3259c27cb718C\",\"recieveToken\":\"0xF8c662c828fFB20D64372557a7BFdA11D2449e65\",\"sendAmount\":\"100000000000000000\",\"recieveAmount\":\"1000000000000000000\",\"createdAt\":1655056461042,\"updatedAt\":1655056461042,\"id\":\"2\",\"reciever\":\"0xa846bc19E8ab8Bb0e0bf386853D8C5e199F0Af9b\",\"secret\":\"1\",\"unlockTimestamp\":1,\"sendBlockchainId\":3,\"recieveBlockchainId\":2}"
+    }
+  }
+}

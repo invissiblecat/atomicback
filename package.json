@@ -49,23 +49,46 @@
     "!*/__tests__"
   ],
   "dependencies": {
+    "@loopback/authentication": "^8.1.2",
+    "@loopback/authorization": "^0.11.2",
     "@loopback/boot": "^4.1.2",
     "@loopback/core": "^3.1.2",
     "@loopback/repository": "^4.1.2",
     "@loopback/rest": "^11.1.2",
     "@loopback/rest-explorer": "^4.1.2",
     "@loopback/service-proxy": "^4.1.2",
+    "axios": "^0.26.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
+    "eth-sig-util": "^3.0.1",
+    "ethereumjs-util": "^7.1.4",
     "ethers": "^5.5.4",
-    "tslib": "^2.0.0"
+    "helmet": "^5.0.2",
+    "isemail": "^3.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "loopback-connector-mongodb": "^5.6.0",
+    "moment": "^2.29.3",
+    "pm2": "^5.2.0",
+    "request": "^2.88.2",
+    "telegraf": "^4.8.1",
+    "tslib": "^2.0.0",
+    "web3-eth-abi": "^1.7.3",
+    "socket.io": "^2.3.0",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@loopback/build": "^8.1.2",
-    "source-map-support": "^0.5.21",
-    "@loopback/testlab": "^4.1.2",
-    "@types/node": "^12.20.47",
+    "@types/socket.io": "^2.1.2",
+    "@types/socket.io-client": "^1.4.32",
     "@loopback/eslint-config": "^12.0.4",
+    "@loopback/testlab": "^4.1.2",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/node": "^12.20.47",
     "eslint": "^8.10.0",
-    "typescript": "~4.6.3"
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.15",
+    "source-map-support": "^0.5.21",
+    "typescript": "~4.6.3",
+    "socket.io-client": "^2.3.0"
   }
 }
