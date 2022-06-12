@@ -5,7 +5,7 @@ import {PasswordHasher} from './services';
 import {Credentials, RefreshTokenService} from './types';
 
 export const USER_LOGIN_SIGNATURE_KEY =
-  'Gagarin Launchpad sign confirmation' as const;
+  'Atomic Swap sign confirmation' as const;
 
 export const defaultExclude = ['createdAt', 'updatedAt'] as const;
 

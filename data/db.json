@@ -1,11 +1,19 @@
 {
   "ids": {
-    "Box": 3
+    "Box": 3,
+    "User": 2,
+    "RefreshToken": 2
   },
   "models": {
     "Box": {
       "1": "{\"status\":\"both deployed\",\"sender\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"sendNetwork\":\"Avalanche\",\"recieveNetwork\":\"Ethereum\",\"sendToken\":\"0x08d275372da60Cfbcb6db7351EE3259c27cb718C\",\"recieveToken\":\"0xF8c662c828fFB20D64372557a7BFdA11D2449e65\",\"sendAmount\":\"100000000000000000\",\"recieveAmount\":\"10000000000000000\",\"createdAt\":1655046765143,\"updatedAt\":1655046765143,\"id\":\"1\",\"reciever\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"secret\":\"\",\"unlockTimestamp\":0,\"sendBlockchainId\":1,\"recieveBlockchainId\":1}",
       "2": "{\"status\":\"first claimed\",\"sender\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"sendNetwork\":\"Avalanche\",\"recieveNetwork\":\"Ethereum\",\"sendToken\":\"0x08d275372da60Cfbcb6db7351EE3259c27cb718C\",\"recieveToken\":\"0xF8c662c828fFB20D64372557a7BFdA11D2449e65\",\"sendAmount\":\"100000000000000000\",\"recieveAmount\":\"1000000000000000000\",\"createdAt\":1655056461042,\"updatedAt\":1655056461042,\"id\":\"2\",\"reciever\":\"0xa846bc19E8ab8Bb0e0bf386853D8C5e199F0Af9b\",\"secret\":\"1\",\"unlockTimestamp\":1,\"sendBlockchainId\":3,\"recieveBlockchainId\":2}"
+    },
+    "User": {
+      "1": "{\"login\":\"0xEfCbF2D32AEe89039ba337D967566A5537DbafE9\",\"id\":\"1\"}"
+    },
+    "RefreshToken": {
+      "1": "{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjRWUThuQVdvUkxhOGo5UFZHYUdEenctMTAiLCJpYXQiOjE2NTUwNjQ0NjMsImV4cCI6MTY1NTI4MDQ2MywiaXNzIjoibG9vcGJhY2s0In0.poJUFvJSE2EF1EfL48fLQUAQ7QosT8X9tiHK0CxPScQ\",\"userId\":\"1\",\"id\":\"1\"}"
     }
   }
 }

@@ -25,14 +25,6 @@ export const TokensResponseBody: ResponsesObject = {
 
 export const LoginSchema: SchemaObject = {
   type: 'object',
-  required: ['login', 'password'],
-  properties: {
-    login: {type: 'string'},
-    password: {
-      type: 'string',
-      minLength: 5,
-    },
-  },
 };
 
 export const LoginRequestBody: Partial<RequestBodyObject> = {

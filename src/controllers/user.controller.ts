@@ -10,9 +10,10 @@ import {
 } from '../keys';
 import {UserRepository} from '../repositories';
 import {JWTService, RefreshtokenService, UserService} from '../services';
-import {TokenObject} from '../types';
+import {RefreshGrant, TokenObject} from '../types';
 import {
   LoginRequestBody,
+  RefreshRequestBody,
   TokensResponseBody,
 } from './specs/user-controller.specs';
 
@@ -54,5 +55,14 @@ export class UserController {
       console.error(err);
       throw new HttpErrors.Unauthorized('Invalid signature');
     }
+  }
+
+  @post('/refresh', {
+    responses: TokensResponseBody,
+  })
+  async refresh(
+    @requestBody(RefreshRequestBody) refreshGrant: RefreshGrant,
+  ): Promise<TokenObject> {
+    return this.refreshService.refreshToken(refreshGrant.refreshToken);
   }
 }
