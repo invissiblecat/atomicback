@@ -48,7 +48,6 @@ export class RegistryService {
   async listener(eventName: string, networkName: string, args: any) {
     const event = args[args.length - 1];
     const eventProperties = event.args;
-    const sender = eventProperties.sender;
     const offchainId = eventProperties.offchainBoxId;
 
     switch (eventName) {
@@ -60,7 +59,7 @@ export class RegistryService {
         );
         break;
       case 'Claim':
-        await this.claim(offchainId);
+        await this.claim(offchainId, eventProperties);
         break;
     }
   }
@@ -90,14 +89,18 @@ export class RegistryService {
     }
   }
 
-  async claim(offchainId: string) {
+  async claim(offchainId: string, eventProperties: any) {
+    const reciever = eventProperties.reciever;
     const box = await this.boxRepository.findById(offchainId.toString());
     let patch: Partial<Box> = {};
-    if (box.status === 'both deployed')
+    if (reciever === box.reciever) {
       patch = {
-        status: 'first claimed',
+        status: 'reciever claimed',
       };
-    else patch = {status: 'both claimed'};
+    } else if (reciever === box.sender)
+      patch = {
+        status: 'sender claimed',
+      };
     try {
       await this.boxRepository.updateById(box?.id, patch);
     } catch (error) {
