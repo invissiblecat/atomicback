@@ -91,7 +91,7 @@ export class BoxController {
     const userId = currentUserProfile[securityId];
     const user = await this.userRepository.findById(userId);
     const box = await this.boxRepository.findById(id);
-    if (user.login !== box.sender && user.login !== box.reciever) {
+    if (user.login !== box.sender || user.login !== box.reciever) {
       throw new HttpErrors.Forbidden('Access denied');
     }
     if (box.status === 'first deployed' || box.status === 'not deployed') {
