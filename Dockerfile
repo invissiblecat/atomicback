@@ -14,7 +14,7 @@ WORKDIR /home/node/app
 # where available (npm@5+)
 COPY --chown=node package*.json ./
 
-RUN npm install
+RUN npm ci
 
 # Bundle app source code
 COPY --chown=node . .
@@ -22,7 +22,7 @@ COPY --chown=node . .
 RUN npm run build
 
 # Bind to all network interfaces so that it can be mapped to the host OS
-ENV HOST=0.0.0.0 PORT=3000
+ENV HOST=0.0.0.0 PORT=3000 ETHEREUM_REGISTRY=0xE9d959bB03cFdb72B7e25B6a2Cf0c2dC380F9a2E AVALANCHE_REGISTRY=0x91E5AC4a7F0Da2a2c69996BC1616cebD8c7f272E AVALANCHE=https://api.avax-test.network/ext/bc/C/rpc ETHEREUM=https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
 
 EXPOSE ${PORT}
 CMD [ "node", "." ]
